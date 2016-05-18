@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SortLib
 {
-    public class MergeSort : ISort
+    public class MergeSort : AMerge, ISort
     {
 
         public T[] Sort<T>(T[] array) where T : IComparable, IComparable<T>
@@ -39,52 +39,6 @@ namespace SortLib
                 result = Merge(left, right);
             }
             return result;
-        }
-
-        public T[] Merge<T>(T[] array_A, T[] array_B) where T : IComparable, IComparable<T>
-        {
-            // Convert the input arrays to lists, which gives more flexibility 
-            // and the option to resize the arrays dynamically.
-            List<T> leftList = array_A.OfType<T>().ToList();
-            List<T> rightList = array_B.OfType<T>().ToList();
-            List<T> resultList = new List<T>();
-
-            // While the sublist are not empty merge them repeatedly to produce new sublists 
-            // until there is only 1 sublist remaining. This will be the sorted list.
-            while (leftList.Count > 0 || rightList.Count > 0)
-            {
-                if (leftList.Count > 0 && rightList.Count > 0)
-                {
-                    // Compare the 2 lists, append the smaller element to the result list
-                    // and remove it from the original list.
-                    if (leftList[0].CompareTo(rightList[0]) <= 0)
-                    {
-                        resultList.Add(leftList[0]);
-                        leftList.RemoveAt(0);
-                    }
-
-                    else
-                    {
-                        resultList.Add(rightList[0]);
-                        rightList.RemoveAt(0);
-                    }
-                }
-
-                else if (leftList.Count > 0)
-                {
-                    resultList.Add(leftList[0]);
-                    leftList.RemoveAt(0);
-                }
-
-                else if (rightList.Count > 0)
-                {
-                    resultList.Add(rightList[0]);
-                    rightList.RemoveAt(0);
-                }
-            }
-
-            // Convert the resulting list back to a static array
-            return resultList.ToArray();
         }
     }
 }
