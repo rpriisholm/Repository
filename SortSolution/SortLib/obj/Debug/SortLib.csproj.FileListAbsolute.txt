@@ -1,5 +1,0 @@
-C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\SortSolution\SortLib\bin\Debug\SortLib.dll
-C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\SortSolution\SortLib\bin\Debug\SortLib.pdb
-C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\SortSolution\SortLib\obj\Debug\SortLib.dll
-C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\SortSolution\SortLib\obj\Debug\SortLib.pdb
-C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\SortSolution\SortLib\obj\Debug\SortLib.csprojResolveAssemblyReference.cache
