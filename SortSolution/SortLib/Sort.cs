@@ -45,53 +45,57 @@ namespace SortLib
     public abstract class AMerge : IMerge
     {
         /**
-            summary: Merges two sorted lists.
-            precondition: Both lists must be sorted.
+            summary: Merges two sorted arrays.
+            precondition: Both arrays must be sorted (smallest value first). 
         */
-        public T[] Merge<T>(T[] array_A, T[] array_B) where T : IComparable, IComparable<T>
+        public T[] Merge<T>(T[] arrayA, T[] arrayB) where T : IComparable, IComparable<T>
         {
-            // Convert the input arrays to lists, which gives more flexibility 
-            // and the option to resize the arrays dynamically.
-            List<T> leftList = array_A.OfType<T>().ToList();
-            List<T> rightList = array_B.OfType<T>().ToList();
-            List<T> resultList = new List<T>();
+            int indexA = 0;
+            int indexB = 0;
+            int indexRes = 0;
 
-            // While the sublist are not empty merge them repeatedly to produce new sublists 
-            // until there is only 1 sublist remaining. This will be the sorted list.
-            while (leftList.Count > 0 || rightList.Count > 0)
+            int resultSize = arrayA.Count() + arrayB.Count();
+            T[] arrayRes = new T[resultSize];
+
+            while (arrayA.Count() > indexA || arrayB.Count() > indexB)
             {
-                if (leftList.Count > 0 && rightList.Count > 0)
+                if (arrayA.Count() > indexA && arrayB.Count() > indexB)
                 {
-                    // Compare the 2 lists, append the smaller element to the result list
-                    // and remove it from the original list.
-                    if (leftList[0].CompareTo(rightList[0]) <= 0)
+                    // Compare the 2 arrays, append the smaller element to the result list
+                    if (arrayA[indexA].CompareTo(arrayB[indexB]) <= 0)
                     {
-                        resultList.Add(leftList[0]);
-                        leftList.RemoveAt(0);
+                        arrayRes[indexRes] = arrayA[indexA];
+                        indexA++;
+                        indexRes++;
                     }
 
                     else
                     {
-                        resultList.Add(rightList[0]);
-                        rightList.RemoveAt(0);
+                        arrayRes[indexRes] = arrayB[indexB];
+                        indexB++;
+                        indexRes++;
                     }
                 }
-
-                else if (leftList.Count > 0)
-                {
-                    resultList.Add(leftList[0]);
-                    leftList.RemoveAt(0);
-                }
-
-                else if (rightList.Count > 0)
-                {
-                    resultList.Add(rightList[0]);
-                    rightList.RemoveAt(0);
+                else {
+                    if (arrayA.Count() > indexA)
+                    {
+                        arrayRes[indexRes] = arrayA[indexA];
+                        indexA++;
+                        indexRes++;
+                    }
+                    else {
+                        if (arrayB.Count() > indexB)
+                        {
+                            arrayRes[indexRes] = arrayB[indexB];
+                            indexB++;
+                            indexRes++;
+                        }
+                    }
                 }
             }
 
             // Convert the resulting list back to a static array
-            return resultList.ToArray();
+            return arrayRes;
         }
     }
 
