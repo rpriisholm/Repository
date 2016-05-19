@@ -9,35 +9,31 @@ namespace SortLib
 {
     public class Sort
     {
-        MergeSort _MergeSort;
-        MergeSort GetMergeSort()
-        {
-            if (_MergeSort != null)
-            {
-                // do nothing
-            }
-            else
-            {
-                _MergeSort = new MergeSort();
-            }
+        MergeSort _MergeSort = new MergeSort();
 
-            return _MergeSort;
-        }
+        InsertionSort _InsertionSort = new InsertionSort();
 
-
+        /* O(n) = n * log_2(n) 
+        * n is cause number of values that should be compared, log_2(n) is cause all values are splited 
+        * into a single value and then compared and putted togheter again one and one, two and two, four and four ...
+        */
         public T[] MergeSort<T>(T[] array) where T : IComparable, IComparable<T>
         {
-            return GetMergeSort().Sort<T>(array);
+            return _MergeSort.Sort<T>(array);
         }
 
-        public T[] MergeSort<T>(T[] array_A, T[] array_B) where T : IComparable, IComparable<T>
+        /* O(n) = n^2 */
+        public T[] InsertionSort<T>(T[] array) where T : IComparable, IComparable<T>
         {
-            return GetMergeSort().Merge<T>(array_A, array_B);
+            return _InsertionSort.Sort<T>(array);
         }
     }
 
     public interface ISort
     {
+        /**
+            summary: can sort an unsorted array.
+        */
         T[] Sort<T>(T[] array) where T : IComparable, IComparable<T>;
     }
 
