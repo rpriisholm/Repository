@@ -8,3 +8,8 @@ C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\Repository\SortSolutio
 C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\Repository\SortSolution\SortLib\obj\Debug\SortLib.csprojResolveAssemblyReference.cache
 C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\Repository\SortSolution\SortLib\obj\Debug\SortLib.dll
 C:\Users\Rpriisholm\Documents\MEGA\C Sharp - Vigtige Libs\Repository\SortSolution\SortLib\obj\Debug\SortLib.pdb
+C:\Users\Rpriisholm\OneDrive\MEGA\C Sharp - Vigtige Libs\Repository\SortSolution\SortLib\bin\Debug\SortLib.dll
+C:\Users\Rpriisholm\OneDrive\MEGA\C Sharp - Vigtige Libs\Repository\SortSolution\SortLib\bin\Debug\SortLib.pdb
+C:\Users\Rpriisholm\OneDrive\MEGA\C Sharp - Vigtige Libs\Repository\SortSolution\SortLib\obj\Debug\SortLib.csprojResolveAssemblyReference.cache
+C:\Users\Rpriisholm\OneDrive\MEGA\C Sharp - Vigtige Libs\Repository\SortSolution\SortLib\obj\Debug\SortLib.dll
+C:\Users\Rpriisholm\OneDrive\MEGA\C Sharp - Vigtige Libs\Repository\SortSolution\SortLib\obj\Debug\SortLib.pdb

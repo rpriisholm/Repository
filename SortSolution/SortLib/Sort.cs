@@ -39,10 +39,21 @@ namespace SortLib
 
     public interface IMerge
     {
+        /**
+            summary: Merges two sorted arrays.
+            precondition: Both arrays must be sorted (smallest value first). 
+            postcontidion: The returned array is sorted and contains all values from arrayA and arrayB.
+        */
         T[] Merge<T>(T[] array_A, T[] array_B) where T : IComparable, IComparable<T>;
+
+        /**
+            summary: Merges two arrays. 
+            postcontidion: The returned array is sorted and contains all values from arrayA and arrayB.
+        */
+        T[] MergeUnsorted<T>(T[] arrayA, T[] arrayB) where T : IComparable, IComparable<T>;
     }
 
-    public abstract class AMerge : IMerge
+    public abstract class AMerge : IMerge, ISort
     {
         /**
             summary: Merges two sorted arrays.
@@ -97,6 +108,18 @@ namespace SortLib
             // Convert the resulting list back to a static array
             return arrayRes;
         }
+
+        public T[] MergeUnsorted<T>(T[] arrayA, T[] arrayB) where T : IComparable, IComparable<T>
+        {
+            Parallel.Invoke(
+                () => arrayA = Sort<T>(arrayA),
+                () => arrayB = Sort<T>(arrayB)
+            );
+
+            return Merge<T>(arrayA, arrayA);
+        }
+
+        public abstract T[] Sort<T>(T[] array) where T : IComparable, IComparable<T>;
     }
 
 }

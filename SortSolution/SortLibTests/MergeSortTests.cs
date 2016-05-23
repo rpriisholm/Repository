@@ -32,5 +32,16 @@ namespace SortLib.Tests
                 Assert.IsTrue(array_result[i] == ArrayTest[i]);
             }
         }
+
+        [TestMethod()]
+        public void SortMultiThreadTest()
+        {
+            var array_result = TestInstance.SortMultithread<int>(UnsortedArray);
+            
+            for (int i = 0; i < ArrayTest.Count(); i++)
+            {
+                Assert.IsTrue(array_result[i] == ArrayTest[i]);
+            }
+        }
     }
 }
